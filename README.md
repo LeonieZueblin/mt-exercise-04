@@ -21,9 +21,9 @@ If you're using PowerShell or Command Prompt, manual setup is required.
 
 ## For macOS / Linux / WSL / Git Bash users
 
-Clone your fork of the repository + Create a virtual environment:
+Clone my fork of the repository + Create a virtual environment:
    ```
-   git clone https://github.com/[your-username]/mt-exercise-4
+   git clone https://github.com/LeonieZueblin/mt-exercise-4
    cd mt-exercise-4 
 
    ```
@@ -37,20 +37,46 @@ Download data:
 
        python ./scripts/download_huggingface_data.py --src en --trg nl --out data
 
-You can choose any supported direction except `de-en`. Good options are `en-nl`, `en-it`, `en-ro`, `nl-en`, `it-en`, or `ro-en`.
+## Prepare the data for the word model training:
+
+Pretokenize data:
+
+```bash
+# Tokenize raw parallel data with sacremoses.
+# Reads:  data/{train,dev,test}.{SRC,TRG}
+# Writes: prep/{train,dev,test}.{SRC,TRG}
+./scripts/preprocess.sh en fr
+```
+
+To generate a byte-pair encoding, use learn_bpe.sh [vocab size] [source language] [target language]
+
+```bash
+./scripts/learn_bpe.sh 2000 en fr # writes bpe/2000/{codes.bpe, vocab.txt, ...}
+```
+
+Then train a model using ./scripts/train.sh [model name]. Model name must correspond to model yaml definition in /configs/
+```bash
+./scripts/train.sh word_2k 
+```
+
+To evaluate, use ./scripts/evaluate.sh [Model name] [source language] [target language]
+
+```bash
+./scripts/evaluate.sh word_2k en fr
+```
+
+Once models have been trained, evaluate them using ./scripts/beam_sweep.sh [Model name] [source language] [target language]
+and scripts/plot_beam_sweep.py [csv file]
 
 
-Train the model:
+```bash
+./scripts/beam_sweep.sh bpe_2k en fr # Writes results to /beam_sweep/[model name]
+python scripts/plot_beam_sweep.py beam_sweep/bpe_2k/results.csv # pip install matplotlib if needed
+```
 
-       ./scripts/train.sh
-
-*the training process can be interrupted at any time. The best checkpoint will always be saved automatically.
-
-Evaluate the model:
-
-       ./scripts/evaluate.sh
-
-## For Windows (Command Prompt / PowerShell users)
+--- 
+The below instructions are untested by me and provided as-is from the original exercise.
+## For Windows (Command Prompt / PowerShell users) (Untested by me)
 Manually create and activate a virtual environment:
 
         python -m venv mt_env

@@ -1,0 +1,18 @@
+2026-05-16 13:01:30,734 - INFO - root - Hello! This is Joey-NMT (version 2.2.0).
+2026-05-16 13:01:30,752 - INFO - joeynmt.model - Building an encoder-decoder model...
+2026-05-16 13:01:30,774 - INFO - joeynmt.model - Enc-dec model built.
+2026-05-16 13:01:30,784 - INFO - joeynmt.helpers - Load model from /Users/leonieadm/Desktop/mt-exercise-04/models/word_2k/30500.ckpt.
+2026-05-16 13:01:30,786 - INFO - joeynmt.tokenizers - en tokenizer: BasicTokenizer(level=word, lowercase=False, normalize=False, filter_by_length=(-1, -1), pretokenizer=none)
+2026-05-16 13:01:30,786 - INFO - joeynmt.tokenizers - fr tokenizer: BasicTokenizer(level=word, lowercase=False, normalize=False, filter_by_length=(-1, -1), pretokenizer=none)
+2026-05-16 13:01:30,792 - WARNING - joeynmt.helpers - `alpha` option is obsolete. Please use `beam_alpha`, instead.
+2026-05-16 13:01:30,792 - INFO - joeynmt.prediction - Predicting 8597 example(s)... (Beam search with beam_size=5, beam_alpha=1.0, n_best=1, min_output_length=1, max_output_length=-1, return_prob='none', generate_unk=True, repetition_penalty=-1, no_repeat_ngram_size=-1)
+2026-05-16 13:11:13,114 - INFO - joeynmt.prediction - Generation took 582.2861[sec]. (No references given)
+2026-05-16 13:14:31,079 - INFO - root - Hello! This is Joey-NMT (version 2.2.0).
+2026-05-16 13:14:31,097 - INFO - joeynmt.model - Building an encoder-decoder model...
+2026-05-16 13:14:31,120 - INFO - joeynmt.model - Enc-dec model built.
+2026-05-16 13:14:31,157 - INFO - joeynmt.helpers - Load model from /Users/leonieadm/Desktop/mt-exercise-04/models/word_2k/30500.ckpt.
+2026-05-16 13:14:31,161 - INFO - joeynmt.tokenizers - en tokenizer: BasicTokenizer(level=word, lowercase=False, normalize=False, filter_by_length=(-1, -1), pretokenizer=none)
+2026-05-16 13:14:31,161 - INFO - joeynmt.tokenizers - fr tokenizer: BasicTokenizer(level=word, lowercase=False, normalize=False, filter_by_length=(-1, -1), pretokenizer=none)
+2026-05-16 13:14:31,168 - WARNING - joeynmt.helpers - `alpha` option is obsolete. Please use `beam_alpha`, instead.
+2026-05-16 13:14:31,168 - INFO - joeynmt.prediction - Predicting 8597 example(s)... (Beam search with beam_size=5, beam_alpha=1.0, n_best=1, min_output_length=1, max_output_length=-1, return_prob='none', generate_unk=True, repetition_penalty=-1, no_repeat_ngram_size=-1)
+2026-05-16 13:16:57,712 - INFO - joeynmt.prediction - Generation took 146.5189[sec]. (No references given)
